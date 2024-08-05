@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.util.List;
+
 @Entity
 @Data
 @Setter
@@ -19,4 +21,6 @@ public class Book {
     String author;
     int publication_year;
     String  ISBN ;
+    @OneToMany(mappedBy = "book")
+    private List<BorrowingRecord> borrowingRecords;
 }

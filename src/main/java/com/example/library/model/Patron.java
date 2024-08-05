@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,6 +20,9 @@ public class Patron {
     Long id ;
     String name;
     String contactInformation;
+
+    @OneToMany(mappedBy = "patron")
+    private List<BorrowingRecord> borrowingRecords;
 
 
 }
